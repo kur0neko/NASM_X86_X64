@@ -1,0 +1,6 @@
+#!/bin/sh
+rm $1.o
+rm $1.lst
+rm $1
+nasm -f macho32 $1.asm -l $1.lst
+ld -macosx_version_min 10.7.0 -no_pie -o $1 $1.o && ./32
